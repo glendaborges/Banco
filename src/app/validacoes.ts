@@ -3,7 +3,7 @@ import { AbstractControl } from "@angular/forms";
 export class Validacoes {
   // validador
   static MaiorQue18Anos(controle: AbstractControl) {
-    const data = controle.value;
+    const data:any = controle.value;
     const [ano, mes, dia] = data.split('-')
     const hoje = new Date();
     const dataNascimento = new Date(ano, mes, dia, 0, 0, 0);

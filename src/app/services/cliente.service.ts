@@ -26,4 +26,16 @@ export class ClienteService {
       })
     )
   }
+
+  getByEmail(email:string){
+    const query = this.db.list('cliente', (ref:any)=>{
+     return ref.orderByChild("email").equalTo(email)
+    }).snapshotChanges().pipe(
+      map(changes =>{
+        return changes.map(c =>({key: c.payload.key, ...c.payload.val() as {}}))
+      })
+    )
+   
+    return query
+  }
 }

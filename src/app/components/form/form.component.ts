@@ -6,6 +6,7 @@ import { ClienteDataService } from 'src/app/services/cliente-data.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { Validacoes } from 'src/app/validacoes';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -26,7 +27,7 @@ export class FormComponent implements OnInit {
   key:string =''
   numero:any
 
-  constructor(private service:ClienteService, private router:Router,  private fb: FormBuilder) { }
+  constructor(private service:ClienteService, private router:Router,  private fb: FormBuilder, private  authService: AuthService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -65,10 +66,12 @@ export class FormComponent implements OnInit {
 
   onSubmit(){
     this.service.insert(this.form.value)
-    this.cliente = new Cliente
+    this.authService.doRegister(this.form.value)
+    // this.cliente = new Cliente
     this.form.reset();
     this.router.navigate(['/'])
-    console.log(this.form.controls['nome'].errors)
+
+    // console.log(this.form.controls['nome'].errors)
   }
 
   get nome() {
