@@ -4,7 +4,7 @@
       <form (ngSubmit)='onSubmit()' [formGroup]="form" class='form-group w-50 p-5' style="border: 1px solid; border-radius: 10px;">
         <h1>Novo Cliente</h1>
         <label class='form-label'>Nome</label>
-        <input  formControlName='nome' type="text" class='form-control' name='nome' (change)="teste()" >
+        <input  formControlName='nome' type="text" class='form-control' name='nome' >
         <div *ngIf="!form.controls['nome'].pristine && form.controls['nome'].errors">
           <p *ngIf="form.controls['nome'].hasError('required')" class="text-danger">
             Nome é obrigatório.

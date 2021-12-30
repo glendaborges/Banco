@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Cliente } from './cliente';
-import { map } from 'rxjs';
+import { map,  Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClienteService {
+  clietes1!: Observable<any[]>;
+
   constructor(private db: AngularFireDatabase) {}
 
   insert(cliente: Cliente) {
@@ -27,7 +29,16 @@ export class ClienteService {
     )
   }
 
-  getByEmail(email:string){
+  
+
+
+
+  // getByEmail(email:string){
+  //   this.db.object(`cliente/email/${email}`).valueChanges();
+  // }
+
+
+  getByEmail2(email:string){
     const query = this.db.list('cliente', (ref:any)=>{
      return ref.orderByChild("email").equalTo(email)
     }).snapshotChanges().pipe(

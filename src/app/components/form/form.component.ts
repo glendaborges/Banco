@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/services/cliente';
 import { FormGroup, FormBuilder, FormControl, Validators, ValidationErrors  } from '@angular/forms';
-import { ClienteDataService } from 'src/app/services/cliente-data.service';
+
 import { ClienteService } from 'src/app/services/cliente.service';
 import { Router } from '@angular/router';
 import { Validacoes } from 'src/app/validacoes';
@@ -32,6 +32,7 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.form = this.fb.group({
     agencia: [null],
+    conta: [this.geraContaAleatoria()],
     nome: [
       '',
         Validators.compose([
@@ -56,13 +57,22 @@ export class FormComponent implements OnInit {
     ]
 
   })
-    // this.cliente = new Cliente
-
+  
   }
 
-  teste(){
-    console.log(this.form.controls['nome'].errors)
-  }
+  geraContaAleatoria() {
+    let numeroCaracteres = 7
+    let ContaAleatoria = '';
+    let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < numeroCaracteres; i++) {
+      ContaAleatoria += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
+        console.log(numeroCaracteres)
+    }
+    return ContaAleatoria;
+
+}
+
+
 
   onSubmit(){
     this.service.insert(this.form.value)
