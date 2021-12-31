@@ -16,17 +16,13 @@ export class FormComponent implements OnInit {
   form!: FormGroup
 
   cliente: Cliente = {
+    id: '',
     agencia: '',
     conta: 0,
     nome: '',
     data: '',
     email: '',
-    senha: '',
-
   }
-  key:string =''
-  numero:any
-
   constructor(private service:ClienteService, private router:Router,  private fb: FormBuilder, private  authService: AuthService) { }
 
   ngOnInit() {
@@ -57,7 +53,7 @@ export class FormComponent implements OnInit {
     ]
 
   })
-  
+
   }
 
   geraContaAleatoria() {
@@ -75,13 +71,12 @@ export class FormComponent implements OnInit {
 
 
   onSubmit(){
-    this.service.insert(this.form.value)
     this.authService.doRegister(this.form.value)
-    // this.cliente = new Cliente
+    delete this.form.value.senha
+    this.form.value['id'] = this.form.value.conta
+    this.service.createClient(this.form.value);
     this.form.reset();
-    this.router.navigate(['/'])
-
-    // console.log(this.form.controls['nome'].errors)
+    this.router.navigate(['']);
   }
 
   get nome() {

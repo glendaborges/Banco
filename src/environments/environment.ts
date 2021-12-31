@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyA0vHneMuW0_zynl-KdgH4L4oM4Oynp4Uo',
-    authDomain: 'sistema-banco.firebaseapp.com',
-    projectId: 'sistema-banco',
-    storageBucket: 'sistema-banco.appspot.com',
-    messagingSenderId: '710038851275',
-    appId: '1:710038851275:web:2d2ee604ed052fcb4e554e',
-    measurementId: 'G-44GXSK1G5J',
+     apiKey: "AIzaSyAVlcCKPtcJ-0p21xBinBDNzyw6wpje25M",
+  authDomain: "banco-ab3c8.firebaseapp.com",
+  projectId: "banco-ab3c8",
+  storageBucket: "banco-ab3c8.appspot.com",
+  messagingSenderId: "151552821096",
+  appId: "1:151552821096:web:d3c8719890b233382678dd",
+  measurementId: "G-WV5296E2W1"
   }
 };
 

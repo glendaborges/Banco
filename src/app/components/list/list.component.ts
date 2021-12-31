@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/services/cliente';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { ClienteDataService } from 'src/app/services/cliente-data.service';
-import { Observable } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./list.component.css'],
 })
 export class ListComponent implements OnInit {
-  clientes!: Observable<any>;
+  clientes!: Cliente[];
 
   constructor(
     private service: ClienteService,
@@ -18,6 +18,17 @@ export class ListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.clientes = this.service.getAll();
+    this.service.getClientList().subscribe(res => {
+      this.clientes = res.map( e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as Cliente;
+      })
+    });
+
+    // this.clientes = this.service.getClientList();
+
+
   }
 }

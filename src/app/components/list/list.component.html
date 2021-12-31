@@ -8,17 +8,16 @@
         <th scope="col">Conta</th>
         <th scope="col">Data de Nascimento</th>
         <th scope="col">E-mail</th>
-        <th scope="col">Senha</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cliente of clientes | async">
+      <tr *ngFor="let cliente of clientes">
         <th scope="row">{{cliente.nome |uppercase}}</th>
         <td>{{cliente.agencia}}</td>
         <td>{{cliente.conta}}</td>
         <td>{{cliente.data |date: 'dd/MM/yyyy'}}</td>
         <td>{{cliente.email}}</td>
-        <td>{{cliente.senha}}</td>
+       
       </tr>
     </tbody>
   </table>

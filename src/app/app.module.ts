@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireDatabaseModule,
     ReactiveFormsModule,
     CommonModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule 
   ],
   providers: [],
   bootstrap: [AppComponent],
