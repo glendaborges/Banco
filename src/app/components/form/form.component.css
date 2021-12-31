@@ -7,13 +7,11 @@ h1, h2, h3,h4,h5,h6{
   align-items: center;
   align-content: center;
   justify-content: space-between;
-  height: 88vh;
   background-color: #eaf3fa;
 }
 
 img{
-
-  height: 100vh;
+  height: 92vh;
   width: 60%;
 }
 
@@ -22,8 +20,8 @@ label{
   font-size: 16px;
   font-weight: 500;
 }
-input, select{
-  width: 100%;
+input, select, option{
+  width: 125%;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -32,11 +30,7 @@ input, select{
   outline: none;
   padding: 8px;
   margin-bottom: 25px;
-  border-radius: 8px 10px 0 0 ;
-}
-
-a{
-  color: #fa9746;
+  border-radius: 8px 8px 0 0 ;
 }
 
 .section-form{
@@ -46,18 +40,13 @@ a{
   align-items: center;
   justify-content: center;
   padding: 2rem 0;
-  margin-left: 7%;
+  margin-left: 8%;
   background: #e6edf1;
-  box-shadow: 12px 12px 25px #afbdc5, -12px -12px 25px #b1bfc9;
+  box-shadow: 12px 12px 25px #b1bfc9, -12px -12px 25px #b1bfc9;
   border-radius: 10px;
 }
 
-.main .section-form .section-form-logo{
-position: relative;
-right: 115px;
-color: #fa9746;
-}
-::placeholder{
+::placeholder, input[type="date"]{
   color: #15274d;
   font-size: 16px;
 }
@@ -66,7 +55,6 @@ color: #fa9746;
   flex-direction: column;
   align-items: center;
 }
-
 
 .btn1
 {
@@ -78,4 +66,48 @@ color: #fa9746;
 .btn1:hover{
   background-color:#15274d;
   color:#ccdee9;
+}
+
+@media screen and (max-width: 1024px) {
+  img {
+    width: 55%;
+  }
+  .section-form {
+    width: 35%;
+    margin-left: 5%;
+  }
+
+  input,select, option {
+    width: 120%;
+    padding:12px;
+  }
+}
+@media screen and (max-width: 768px) {
+  img {
+    width: 0;
+  }
+  .main{
+    background-image: url('../../../assets/img/image4.jpg');
+    background-repeat: no-repeat;
+    background-size: 110% 100%;
+    background-position-x: center;
+    background-position-y: center;
+
+  }
+  .section-form {
+    width: 45%;
+    opacity: 0.97;
+  }
+
+  input,select, option {
+    width: 110%;
+    padding:12px;
+  }
+}
+@media screen and (max-width: 425px) {
+  .section-form {
+    width: 90%;
+    margin-left:5%;
+  }
+
 }

@@ -1,41 +1,47 @@
-h1, h2, h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 500;
-  color:#15274d;
+  color: #15274d;
 }
-.main{
+.main {
   display: flex;
   align-items: center;
   align-content: center;
-  height: 100vh;  background-color: #eaf3fa;
+  height: 100vh;
+  background-color: #eaf3fa;
 }
 
-img{
+img {
   height: 100vh;
   width: 65%;
 }
 
-label{
+label {
   color: #15274d;
   font-size: 16px;
   font-weight: 500;
 }
-input{
-  width: 16.5rem;
+input {
+  width: 100%;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
   border-bottom: 3px solid #15274d;
   background-color: #ccdee9;
   outline: none;
-  padding: 8px;
-  border-radius: 8px 10px 0 0 ;
+  padding: 9px;
+  border-radius: 8px 8px 0 0;
 }
 
-a{
+a {
   color: #fa9746;
 }
 
-.section-form{
+.section-form {
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -48,31 +54,83 @@ a{
   border-radius: 10px;
 }
 
-::placeholder{
+::placeholder {
   color: #15274d;
   font-size: 16px;
 }
-.div-form{
+.div-form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.main .section-form .section-form-logo{
+.main .section-form .section-form-logo {
   position: relative;
-  right: 112px;
-  top:-10px;
+  right: 110px;
+  top: -10px;
   color: #fa9746;
-  }
+}
 
-.btn1
-{
+.btn1 {
   background-color: #ccdee9;
   border: 1px solid #15274d;
   color: #15274d;
 }
 
-.btn1:hover{
-  background-color:#15274d;
-  color:#ccdee9;
+.btn1:hover {
+  background-color: #15274d;
+  color: #ccdee9;
+}
+
+@media screen and (max-width: 1024px) {
+  img {
+    height: 100vh;
+    width: 55%;
+  }
+  .section-form {
+    width: 35%;
+  }
+
+  input {
+    width: 120%;
+    padding:12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  img {
+    width: 0;
+  }
+  .main{
+    background-image: url('../../../assets/img/login_image.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
+    background-position-y: center;
+
+  }
+  .section-form {
+    width: 45%;
+    opacity: 0.97;
+  }
+
+  input {
+    width: 110%;
+    padding:12px;
+  }
+  .main .section-form .section-form-logo {
+    right: 90px;
+    top: -10px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .section-form {
+    width: 90%;
+    margin-left:5%;
+  }
+  .main .section-form .section-form-logo {
+    right: 80px;
+    top: -10px;
+  }
 }
