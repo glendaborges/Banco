@@ -22,7 +22,7 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInToHome }
   },
-  { path: 'register', component: FormComponent },
+  { path: 'cadastro', component: FormComponent },
   {
     path: 'user',
     component: UserComponent,

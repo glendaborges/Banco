@@ -1,0 +1,16 @@
+*{
+  text-decoration: none;
+
+}
+.nav1
+{
+  background-color: #15274d;
+  height: 6vh;
+}
+.nav1 a{
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color:white;
+}

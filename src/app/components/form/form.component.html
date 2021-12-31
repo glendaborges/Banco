@@ -1,27 +1,30 @@
 <app-header></app-header>
 
-<div class='container mt-4'>
-  <div class='row'>
-    <div class='col d-flex justify-content-center'>
-      <form (ngSubmit)='onSubmit()' [formGroup]="form" class='form-group w-50 p-5' style="border: 1px solid; border-radius: 10px;">
-        <h1>Novo Cliente</h1>
-        <label class='form-label'>Nome</label>
-        <input  formControlName='nome' type="text" class='form-control' name='nome' >
+<main class='main'>
+  <section class='section-form'>
+
+    <h1>Novo Cliente</h1>
+    <form (ngSubmit)='onSubmit()' [formGroup]="form">
+
+      <div class="div-form">
+
+        <!-- <label class='form-label'>Nome</label> -->
+        <input formControlName='nome' type="text" name='nome' placeholder='Digite seu nome completo'>
         <div *ngIf="!form.controls['nome'].pristine && form.controls['nome'].errors">
           <p *ngIf="form.controls['nome'].hasError('required')" class="text-danger">
             Nome é obrigatório.
           </p>
-         <p *ngIf="form.controls['nome'].hasError('minlength')" class="text-danger">
+          <p *ngIf="form.controls['nome'].hasError('minlength')" class="text-danger">
             Nome deve ter no mínimo 3 caracters.
           </p>
-           <p *ngIf="form.controls['nome'].hasError('maxlength')" class="text-danger">
-            Nome deve ter no máximo 100 caracters.
+          <p *ngIf="form.controls['nome'].hasError('maxlength')" class="text-danger">
+            Nome deve ter no máximo 100 caracteres.
           </p>
-
         </div>
-        <label class='form-label mt-3'>Data de Nascimento</label>
-        <input formControlName='data' type="date" class='form-control' name='data' >
-        <div *ngIf="!form.controls['data'].pristine && form.controls['data'].errors" >
+
+        <!-- <label class='form-label mt-3'>Data de Nascimento</label> -->
+        <input formControlName='data' type="date" name='data'>
+        <div *ngIf="!form.controls['data'].pristine && form.controls['data'].errors">
           <p *ngIf="form.controls['data'].hasError('required')" class="text-danger">
             Data de Nascimento é obrigatória.
           </p>
@@ -29,8 +32,9 @@
             Você precisa ter mais de 18 anos para cadastrar-se.
           </p>
         </div>
-        <label class='form-label mt-3'>E-mail</label>
-        <input formControlName='email' type="email" class="form-control" name='email'>
+
+        <!-- <label class='form-label mt-3'>E-mail</label> -->
+        <input formControlName='email' type="email" name='email' placeholder='Digite seu email'>
         <div>
           <div *ngIf="!form.controls['email'].pristine && form.controls['email'].errors">
             <p *ngIf="form.controls['email'].hasError('email')" class="text-danger">
@@ -38,8 +42,9 @@
             </p>
           </div>
         </div>
-        <label class="form-label mt-3">Senha</label>
-        <input formControlName='senha' type="password" class='form-control' name='senha'>
+
+        <!-- <label class="form-label mt-3">Senha</label> -->
+        <input formControlName='senha' type="password" name='senha' placeholder='Digite sua senha'>
         <div *ngIf="!form.controls['senha'].pristine && form.controls['senha'].errors">
           <p *ngIf="form.controls['senha'].hasError('required')" class="text-danger">
             Senha é obrigatória.
@@ -51,16 +56,19 @@
             Senha deve ter no máximo 12 caracters.
           </p>
         </div>
-        <label class='form-label mt-3'>Selecione sua agência</label>
-        <select class='form-select' name='agencia' formControlName='agencia' id='agencia'>
+
+        <!-- <label class='form-label mt-3'>Selecione sua agência</label> -->
+        <select name='agencia' formControlName='agencia' id='agencia' required>
+          <option value="" disabled selected >Selecione uma agência bancária</option>
           <option value='2525'>Nordeste - 2525</option>
           <option value='1212'>Sul - 1212</option>
           <option value='5858'>Sudeste - 5858</option>
           <option value='7171'>Norte - 7171</option>
           <option value='8585'>Centro-Oeste - 8585</option>
         </select>
-        <button [disabled]="!form.valid" class='btn btn-sm btn-primary mt-3' type='submit'>Salvar</button>
-      </form>
-    </div>
-  </div>
-</div>
+        <button [disabled]="!form.valid" class='btn btn1' type='submit'>Cadastrar</button>
+      </div>
+    </form>
+  </section>
+  <img src="../../../assets/img/image4.jpg">
+</main>

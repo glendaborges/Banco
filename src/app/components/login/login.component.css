@@ -28,8 +28,11 @@ input{
   background-color: #ccdee9;
   outline: none;
   padding: 8px;
-  margin-bottom: 25px;
   border-radius: 8px 10px 0 0 ;
+}
+
+a{
+  color: #fa9746;
 }
 
 .section-form{
@@ -41,7 +44,7 @@ input{
   padding: 2rem;
   margin-left: 6%;
   background: #e6edf1;
-  box-shadow: 12px 12px 25px #afbdc5, -12px -12px 25px #b1bfc9;
+  box-shadow: 12px 12px 25px #b1bfc9, -12px -12px 25px #b1bfc9;
   border-radius: 10px;
 }
 
@@ -55,6 +58,12 @@ input{
   align-items: center;
 }
 
+.main .section-form .section-form-logo{
+  position: relative;
+  right: 112px;
+  top:-10px;
+  color: #fa9746;
+  }
 
 .btn1
 {

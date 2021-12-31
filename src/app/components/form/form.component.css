@@ -1,0 +1,81 @@
+h1, h2, h3,h4,h5,h6{
+  font-weight: 500;
+  color:#15274d;
+}
+.main{
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  height: 88vh;
+  background-color: #eaf3fa;
+}
+
+img{
+
+  height: 100vh;
+  width: 60%;
+}
+
+label{
+  color: #15274d;
+  font-size: 16px;
+  font-weight: 500;
+}
+input, select{
+  width: 100%;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom: 3px solid #15274d;
+  background-color: #ccdee9;
+  outline: none;
+  padding: 8px;
+  margin-bottom: 25px;
+  border-radius: 8px 10px 0 0 ;
+}
+
+a{
+  color: #fa9746;
+}
+
+.section-form{
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  margin-left: 7%;
+  background: #e6edf1;
+  box-shadow: 12px 12px 25px #afbdc5, -12px -12px 25px #b1bfc9;
+  border-radius: 10px;
+}
+
+.main .section-form .section-form-logo{
+position: relative;
+right: 115px;
+color: #fa9746;
+}
+::placeholder{
+  color: #15274d;
+  font-size: 16px;
+}
+.div-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.btn1
+{
+  background-color: #ccdee9;
+  border: 1px solid #15274d;
+  color: #15274d;
+}
+
+.btn1:hover{
+  background-color:#15274d;
+  color:#ccdee9;
+}
