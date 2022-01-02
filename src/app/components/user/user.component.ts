@@ -15,11 +15,9 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
-
   resultado!: Cliente;
   form!: FormGroup;
   transferencias!: Transferencia[];
-  resultado!: Cliente
 
   constructor(
     public authService: AuthService,
@@ -44,7 +42,6 @@ export class UserComponent implements OnInit {
       });
     });
 
-
     this.form = this.fb.group({
       contaOrigem: '',
       contaDestino: '',
@@ -63,10 +60,9 @@ export class UserComponent implements OnInit {
           this.form.value.flagSucesso = true;
           this.transferenciasService.createTransferencia(this.form.value);
         } else {
-          console.log('Saldo Insuficiente')
+          console.log('Saldo Insuficiente');
         }
         this.form.reset();
-        this.modal = false;
       },
       (err) => {
         console.log(err);
@@ -74,3 +70,4 @@ export class UserComponent implements OnInit {
       }
     );
   }
+}

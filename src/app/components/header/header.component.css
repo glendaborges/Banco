@@ -1,34 +1,32 @@
-*{
+* {
   text-decoration: none;
 }
-.nav
-{
+.nav {
   background-color: #15274d;
 }
 
-.nav1 a{
+.nav1 a {
   font-size: 1.2rem;
-
 }
-ul li a{
+ul li a {
   cursor: pointer;
   text-decoration: none;
-  color:#fff;
+  color: #fff;
   font-size: 1rem;
   font-weight: 500;
 }
 
-ul li a:hover{
-color: #fa9746;
+ul li a:hover {
+  color: #fa9746;
 }
 
-.color1:hover{
-color:#fa9746;
-transform: scale(1.1);
+.color1:hover {
+  color: #fa9746;
+  transform: scale(1.1);
 }
-.sair:hover{
-border: 1px solid #fff;
-background-color: #fff;
-border-radius: 7px;
-padding: 7px 10px;
+.sair:hover {
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 7px;
+  padding: 7px 10px;
 }

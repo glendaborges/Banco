@@ -93,7 +93,7 @@ a {
 
   input {
     width: 120%;
-    padding:12px;
+    padding: 12px;
   }
 }
 
@@ -101,13 +101,12 @@ a {
   img {
     width: 0;
   }
-  .main{
-    background-image: url('../../../assets/img/login_image.jpg');
+  .main {
+    background-image: url("../../../assets/img/login_image.jpg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position-x: center;
     background-position-y: center;
-
   }
   .section-form {
     width: 45%;
@@ -116,7 +115,7 @@ a {
 
   input {
     width: 110%;
-    padding:12px;
+    padding: 12px;
   }
   .main .section-form .section-form-logo {
     right: 90px;
@@ -127,7 +126,7 @@ a {
 @media screen and (max-width: 425px) {
   .section-form {
     width: 90%;
-    margin-left:5%;
+    margin-left: 5%;
   }
   .main .section-form .section-form-logo {
     right: 80px;

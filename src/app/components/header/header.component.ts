@@ -17,12 +17,12 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 export class HeaderComponent implements OnInit {
   resultado!: Cliente;
   form!: FormGroup;
-  modal: boolean = false;
   transferencias!: Transferencia[];
+  modal: boolean = false;
 
   constructor(
     public authService: AuthService,
-    private router: Router,
+    private route: Router,
     private clienteService: ClienteService,
     private db: AngularFireDatabase,
     private transferenciasService: TransferenciaService,
@@ -30,6 +30,19 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.authService.afAuth.currentUser.then((data: any) => {
+      // acessar o email dentro do obj
+      const email = data?.multiFactor.user.email;
+      this.clienteService.getByEmail(email).subscribe((res: any) => {
+        this.resultado = res[0];
+        this.transferenciasService
+          .getByContaOrigem(this.resultado.conta)
+          .subscribe((transferencia: any) => {
+            this.transferencias = transferencia;
+          });
+      });
+    });
+
     this.form = this.fb.group({
       contaOrigem: '',
       contaDestino: '',
@@ -59,13 +72,12 @@ export class HeaderComponent implements OnInit {
       }
     );
   }
-
   mostraModal() {
     this.modal = true;
   }
 
   logout() {
     this.authService.doLogout();
-    this.router.navigate(['/login']);
+    this.route.navigate(['/login']);
   }
 }

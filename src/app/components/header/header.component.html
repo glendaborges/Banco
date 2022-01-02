@@ -8,8 +8,8 @@
       </svg>
       SoulBank
     </a>
-    <button class="navbar-toggler p-0 mx-3 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
-      aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler p-0 mx-3 border-0" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse nav" id="navbarScroll">
@@ -18,9 +18,9 @@
           <a (click)="mostraModal()">Nova Transação</a>
         </li>
       </ul>
-
-      <ul class="navbar-nav  mx-3 my-2 my-lg-0 navbar-nav-scroll btn sair text-center" ><li><a (click)="logout()">Logout</a></li></ul>
-
+      <ul class="navbar-nav  mx-3 my-2 my-lg-0 navbar-nav-scroll btn sair text-center">
+        <li><a (click)="logout()">Logout</a></li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -33,7 +33,7 @@
         style="border: 1px solid; border-radius: 10px;">
         <h1>Nova Transferencia</h1>
         <label class='form-label'>Conta de Destino</label>
-        <input  formControlName='contaDestino' type="text" class='form-control' name='contaDestino'>
+        <input formControlName='contaDestino' type="text" class='form-control' name='contaDestino'>
         <label class='form-label mt-3'>Valor</label>
         <input formControlName='valor' type="number" class='form-control' name='valor'>
         <label class="form-label mt-3">Senha</label>
