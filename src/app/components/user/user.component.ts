@@ -18,6 +18,7 @@ export class UserComponent implements OnInit {
   resultado!: Cliente;
   form!: FormGroup;
   transferencias!: Transferencia[];
+  conta!: Transferencia[];
 
   constructor(
     public authService: AuthService,
@@ -39,6 +40,9 @@ export class UserComponent implements OnInit {
           .subscribe((transferencia: any) => {
             this.transferencias = transferencia;
           });
+      this.transferenciasService.getByContaDestino(this.resultado.conta).subscribe((conta: any)=>{
+        this.conta = conta
+      })
       });
     });
 

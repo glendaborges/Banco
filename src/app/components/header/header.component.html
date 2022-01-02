@@ -33,7 +33,9 @@
         style="border: 1px solid; border-radius: 10px;">
         <h1>Nova Transferencia</h1>
         <label class='form-label'>Conta de Destino</label>
-        <input formControlName='contaDestino' type="text" class='form-control' name='contaDestino'>
+        <select name="conta" formControlName='contaDestino' class="form-select">
+            <option *ngFor="let i of clientes " value="{{i.conta}}">{{i.conta}} - {{i.nome |titlecase}}</option>
+        </select>
         <label class='form-label mt-3'>Valor</label>
         <input formControlName='valor' type="number" class='form-control' name='valor'>
         <label class="form-label mt-3">Senha</label>

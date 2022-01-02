@@ -35,6 +35,12 @@ export class TransferenciaService {
     return this.angularFireStore
     .collection('tranferencias', (ref)=> ref.where('contaOrigem', '==', contaOrigem).where('flagSucesso','==', true)).valueChanges()
   }
+
+  getByContaDestino(contaOrigem:string){
+    return this.angularFireStore
+    .collection('tranferencias', (ref)=> ref.where('contaDestino', '==', contaOrigem)).valueChanges()
+  }
+
 }
 
 

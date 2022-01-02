@@ -25,16 +25,24 @@
     <table class="table">
       <thead>
         <tr>
+          <th>Movimentação</th>
           <th>conta origem</th>
-          <th>conta</th>
+          <th>conta destino</th>
           <th>valor</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor='let transferencia of transferencias'>
-          <td>{{transferencia.contaOrigem}}</td>
+          <td class="text-danger">-</td>
+          <td>{{transferencia.contaOrigem}}  </td>
           <td>{{transferencia.contaDestino}}</td>
           <td>{{transferencia.valor}}</td>
+        </tr>
+        <tr *ngFor='let i of conta '>
+          <td class="text-success">+</td>
+          <td>{{i.contaOrigem}}</td>
+          <td>{{i.contaDestino}}</td>
+          <td>{{i.valor}}</td>
         </tr>
       </tbody>
     </table>

@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
   form!: FormGroup;
   transferencias!: Transferencia[];
   modal: boolean = false;
+  clientes!: Cliente[];
 
   constructor(
     public authService: AuthService,
@@ -30,6 +31,8 @@ export class HeaderComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
+    this.getClientes()
     this.authService.afAuth.currentUser.then((data: any) => {
       // acessar o email dentro do obj
       const email = data?.multiFactor.user.email;
@@ -49,6 +52,17 @@ export class HeaderComponent implements OnInit {
       valor: 0,
       flagSucesso: false,
       senha: '',
+    });
+  }
+
+  getClientes() {
+    this.clienteService.getClientList().subscribe(res => {
+      this.clientes = res.map( e => {
+        return {
+          id: e.payload.doc.id,
+          ...e.payload.doc.data() as {}
+        } as Cliente;
+      })
     });
   }
 
