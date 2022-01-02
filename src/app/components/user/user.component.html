@@ -3,7 +3,7 @@
 <a (click)="logout()" class="btn btn-danger">Sair</a>
 </div>
 <div>
-  <p>Saldo:{{transferencia.saldo}}</p>
+  <p>Saldo:{{resultado?.saldo}}</p>
 </div>
 
 <button class='btn btn-primary' (click)="mostraModal()">Nova Transação</button>
@@ -13,17 +13,16 @@
   <table class="table">
     <thead>
       <tr>
-        <th>id</th>
+        <th>conta origem</th>
         <th>conta</th>
         <th>valor</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor='let transferencia of transferencias'>
-        <td>{{transferencia.id}}</td>
-        <td>{{transferencia.conta}}</td>
+        <td>{{transferencia.contaOrigem}}</td>
+        <td>{{transferencia.contaDestino}}</td>
         <td>{{transferencia.valor}}</td>
-
       </tr>
     </tbody>
   </table>
@@ -35,8 +34,8 @@
     <div class='col d-flex justify-content-center'>
       <form (ngSubmit)='onSubmit()' [formGroup]="form" class='form-group w-50 p-5' style="border: 1px solid; border-radius: 10px;">
         <h1>Nova Transferencia</h1>
-        <label class='form-label'>Conta</label>
-        <input  formControlName='conta' type="text" class='form-control' name='conta'>
+        <label class='form-label'>Conta de Destino</label>
+        <input  formControlName='contaDestino' type="text" class='form-control' name='contaDestino'>
         <label class='form-label mt-3'>Valor</label>
         <input formControlName='valor' type="number" class='form-control' name='valor' >
         <label class="form-label mt-3">Senha</label>
