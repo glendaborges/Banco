@@ -2,15 +2,29 @@
   text-decoration: none;
 
 }
-.nav1
+.nav
 {
   background-color: #15274d;
-  height: 8vh;
 }
+
+
 .nav1 a{
   font-size: 1.2rem;
-  display: flex;
-  align-items: center;
+
+}
+ul li a{
+  cursor: pointer;
   text-decoration: none;
-  color:white;
+  color:#fff;
+  font-size: 1rem;
+}
+
+ul li a:hover{
+font-size: 1.2rem;
+color: #fa9746;
+}
+
+.color1:hover{
+color:#fa9746;
+transform: scale(1.1);
 }

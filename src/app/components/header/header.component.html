@@ -1,22 +1,45 @@
-<nav class="navbar navbar-expand-lg nav1 ">
-  <div class="container-fluid ">
-    <a class="navbar-brand fs-4" href="#">
-      <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-bank2 me-2" viewBox="0 0 16 16">
-        <path d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z"/>
+<nav class="navbar navbar-expand-md navbar-dark nav" style="height: 8vh;">
+  <div class="container-fluid p-0 ">
+    <a class="navbar-brand fs-4 color1" href="#">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bank2  ms-3 me-1"
+        viewBox="0 0 16 16">
+        <path
+          d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916l-7.5-5zM12.375 6v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zm-2.5 0v7h-1.25V6h1.25zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2zM.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1H.5z" />
       </svg>
       SoulBank
     </a>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="">
-          <a class="nav-link active" aria-current="page" routerLink="/">Lista</a>
+    <button class="navbar-toggler mx-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse nav" id="navbarScroll">
+      <ul class="navbar-nav me-auto mx-3 my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li>
+          <a (click)="mostraModal()">Nova Transação</a>
         </li>
-        <li class="">
-          <a class="nav-link" routerLink="/cadastro">Cadastro</a>
-        </li>
-
       </ul>
+
+      <ul class="navbar-nav  mx-3 my-2 my-lg-0 navbar-nav-scroll" ><li><a (click)="logout()">Sair</a></li></ul>
+
     </div>
   </div>
 </nav>
 
+<!-- Modal -->
+<div class='container mt-4' name='modal' *ngIf="modal">
+  <div class='row'>
+    <div class='col d-flex justify-content-center'>
+      <form (ngSubmit)='onSubmit()' [formGroup]="form" class='form-group w-50 p-5'
+        style="border: 1px solid; border-radius: 10px;">
+        <h1>Nova Transferencia</h1>
+        <label class='form-label'>Conta</label>
+        <input formControlName='conta' type="text" class='form-control' name='conta'>
+        <label class='form-label mt-3'>Valor</label>
+        <input formControlName='valor' type="number" class='form-control' name='valor'>
+        <label class="form-label mt-3">Senha</label>
+        <input formControlName='senha' type="password" class='form-control' name='senha'>
+        <button class='btn btn-sm btn-primary mt-3' type='submit'>Salvar</button>
+      </form>
+    </div>
+  </div>
+</div>

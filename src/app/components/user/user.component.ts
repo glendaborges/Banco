@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ClienteService } from 'src/app/services/cliente.service';
-;
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
@@ -17,7 +16,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 })
 export class UserComponent implements OnInit {
   resultado!: Cliente
-  form!:FormGroup
+  /* form!:FormGroup */
   transferencia: Transferencia = {
     conta: '',
     valor: 0,
@@ -25,7 +24,7 @@ export class UserComponent implements OnInit {
     senha: '',
     id:''
   }
-  modal: boolean = false
+  /* modal: boolean = false */
 
   transferencias!: Transferencia[]
 
@@ -51,15 +50,15 @@ export class UserComponent implements OnInit {
     })
   })
 
-    this.form = this.fb.group({
+/*     this.form = this.fb.group({
       conta: '',
       valor: 0,
       saldo: 0,
       senha: ''
-    })
+    }) */
   }
 
-  onSubmit(){
+/*   onSubmit(){
     this.transferenciasService.createTransferencia(this.form.value)
     this.form.reset()
     this.modal = false
@@ -73,6 +72,6 @@ export class UserComponent implements OnInit {
   logout(){
     this.authService.doLogout()
     this.route.navigate(['/login'])
-  }
+  } */
 
 }

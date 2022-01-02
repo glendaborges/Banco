@@ -1,12 +1,12 @@
+<app-header></app-header>
+<h1>Olá, {{resultado?.nome |titlecase}}!</h1>
+<!-- <a (click)="logout()" class="btn btn-danger">Sair</a> -->
 
-<div style="display:flex; justify-content: space-between;"><h1>Bem-Vindo, {{resultado?.nome}}!</h1>
-<a (click)="logout()" class="btn btn-danger">Sair</a>
-</div>
 <div>
-  <p>Saldo:{{transferencia.saldo}}</p>
+  <p>Saldo:{{transferencia.saldo |currency:'BRL'}}</p>
 </div>
 
-<button class='btn btn-primary' (click)="mostraModal()">Nova Transação</button>
+<!-- <button class='btn btn-primary' (click)="mostraModal()">Nova Transação</button> -->
 
 <div class='container'>
   <h1>Extrato</h1>
@@ -30,7 +30,7 @@
 </div>
 
 
-<div class='container mt-4' name='modal' *ngIf="modal">
+<!-- <div class='container mt-4' name='modal' *ngIf="modal">
   <div class='row'>
     <div class='col d-flex justify-content-center'>
       <form (ngSubmit)='onSubmit()' [formGroup]="form" class='form-group w-50 p-5' style="border: 1px solid; border-radius: 10px;">
@@ -45,5 +45,5 @@
       </form>
     </div>
   </div>
-</div>
+</div> -->
 
