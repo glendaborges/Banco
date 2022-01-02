@@ -1,21 +1,33 @@
 <app-header></app-header>
-<h1>Olá, {{resultado?.nome |titlecase}}!</h1>
+<h2 class='ola'>Olá, <span style='color:#fa9746;' >{{resultado?.nome |titlecase}}</span>!</h2>
 <!-- <a (click)="logout()" class="btn btn-danger">Sair</a> -->
 
-<div>
-  <p>Saldo:{{transferencia.saldo |currency:'BRL'}}</p>
-</div>
+<main>
+  <section class="section">
+  <h3 class="mb-0">SALDO ATUAL:</h3>
+  <h2 class="h2-saldo">{{transferencia.saldo |currency:'BRL'}}</h2>
+  <div class="container-saldo">
+    <div class="receitas">
+      <h3 class="mb-0">RECEITAS</h3>
+      <h4>{{300|currency:"BRL"}}</h4>
+    </div>
+    <div class="despesas">
+      <h3 class="mb-0">DESPESAS</h3>
+      <h4>{{300|currency:"BRL"}}</h4>
+    </div>
+  </div>
+</section>
 
 <!-- <button class='btn btn-primary' (click)="mostraModal()">Nova Transação</button> -->
 
 <div class='container'>
-  <h1>Extrato</h1>
+  <h2>Minhas transações</h2>
   <table class="table">
     <thead>
       <tr>
-        <th>id</th>
-        <th>conta</th>
-        <th>valor</th>
+        <th>Id</th>
+        <th>Conta</th>
+        <th>Valor</th>
       </tr>
     </thead>
     <tbody>
@@ -28,7 +40,7 @@
     </tbody>
   </table>
 </div>
-
+</main>
 
 <!-- <div class='container mt-4' name='modal' *ngIf="modal">
   <div class='row'>
@@ -46,4 +58,3 @@
     </div>
   </div>
 </div> -->
-
