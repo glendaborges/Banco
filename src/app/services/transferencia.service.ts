@@ -18,10 +18,22 @@ export class TransferenciaService {
     })
   }
 
+  getClientDoc(id:any) {
+    return this.angularFireStore
+    .collection('tranferencias')
+    .doc(id)
+    .valueChanges()
+  }
+
   getTransferenciaList(){
     return this.angularFireStore
-    .collection('transferencia')
+    .collection('tranferencias')
     .snapshotChanges()
+  }
+
+  getByContaOrigem(contaOrigem:string){
+    return this.angularFireStore
+    .collection('tranferencias', (ref)=> ref.where('contaOrigem', '==', contaOrigem).where('flagSucesso','==', true)).valueChanges()
   }
 }
 

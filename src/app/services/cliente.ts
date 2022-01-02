@@ -5,9 +5,6 @@ export class Cliente {
   nome!: string
   data!: string
   email!: string
-
-
-
-
+  saldo!: number
 }
 

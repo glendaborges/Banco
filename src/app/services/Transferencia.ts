@@ -1,7 +1,7 @@
 export class Transferencia {
-  conta!: string
+  contaOrigem!: string
+  contaDestino!:string
   valor!: number
-  saldo!: number
-  senha!: string
+  flagSucesso!: boolean
   id!: string
 }
