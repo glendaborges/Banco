@@ -32,8 +32,8 @@
       <form (ngSubmit)='onSubmit()' [formGroup]="form" class='form-group w-50 p-5'
         style="border: 1px solid; border-radius: 10px;">
         <h1>Nova Transferencia</h1>
-        <label class='form-label'>Conta</label>
-        <input formControlName='conta' type="text" class='form-control' name='conta'>
+        <label class='form-label'>Conta de Destino</label>
+        <input  formControlName='contaDestino' type="text" class='form-control' name='contaDestino'>
         <label class='form-label mt-3'>Valor</label>
         <input formControlName='valor' type="number" class='form-control' name='valor'>
         <label class="form-label mt-3">Senha</label>

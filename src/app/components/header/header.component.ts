@@ -1,11 +1,13 @@
-import { Transferencia } from './../../services/Transferencia';
 import { TransferenciaService } from './../../services/transferencia.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { ClienteService } from './../../services/cliente.service';
+import { Transferencia } from './../../services/Transferencia';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { Cliente } from './../../services/cliente';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthService } from './../../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +15,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  resultado!: Cliente;
   form!: FormGroup;
   modal: boolean = false;
-  transferencias!: Transferencia[]
+  transferencias!: Transferencia[];
 
   constructor(
     public authService: AuthService,
@@ -28,17 +31,33 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.fb.group({
-      conta: '',
+      contaOrigem: '',
+      contaDestino: '',
       valor: 0,
-      saldo: 0,
+      flagSucesso: false,
       senha: '',
     });
   }
 
   onSubmit() {
-    this.transferenciasService.createTransferencia(this.form.value);
-    this.form.reset();
-    this.modal = false;
+    this.form.value['contaOrigem'] = this.resultado.conta;
+    this.authService.reAuth(this.resultado.email, this.form.value.senha).then(
+      (res) => {
+        delete this.form.value.senha;
+        if (this.form.value.valor <= this.resultado.saldo) {
+          this.form.value.flagSucesso = true;
+          this.transferenciasService.createTransferencia(this.form.value);
+        } else {
+          console.log('Saldo Insuficiente');
+        }
+        this.form.reset();
+        this.modal = false;
+      },
+      (err) => {
+        console.log(err);
+        console.log('senha incorreta');
+      }
+    );
   }
 
   mostraModal() {
