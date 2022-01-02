@@ -3,18 +3,30 @@ h2,
 h3,
 h5 {
   color: #15274d;
+  font-weight: 500;
 }
 
 h2.ola {
   position: absolute;
-  top: 5rem;
+  top: 4.5rem;
   left: 1rem;
   color: #15274d;
 }
-.h2-saldo {
+
+span{
+  color:#fa9746;
+  font-weight: 500;
+}
+
+h2.saldo {
   font-size: 1.5rem;
   color: #fa9746;
 }
+
+h4{
+  font-weight: 700;
+}
+
 
 main {
   display: flex;
@@ -24,7 +36,6 @@ main {
   align-items: center;
   font-weight: 500;
   margin-top: 3rem;
-  font-family: "Amaranth", sans-serif;
 }
 
 .section {
@@ -44,17 +55,36 @@ main {
   border-radius: 5px;
   font-weight: 500;
   padding: 1rem;
-  box-shadow: 2px 2px 5px #aab9dbb2, -2px 2px 5px #aab9dbb2;
+  box-shadow: 2px 2px 5px #b1bfc9, -2px 2px 5px #b1bfc9;
 }
 
 .receitas {
-  color: #1cc288;
+
   padding-right: 30px;
   border-right: 1px solid #dedede;
 }
-.despesas {
-  color: #ff0000;
+
+
+table {
+  color:#15274d;
+  border-collapse:separate;
+  border:1px solid #ccdee9;
+  border:1px solid #fa9746;
+  border-radius:6px;
 }
+
+thead{
+  background-color: #ccdee9;
+  background-color: #fa9746;
+  border-radius: 30px;
+}
+
+td:first-child, th:first-child {
+   border-left: none;
+}
+
+
+
 @media screen and (max-width: 1024px) {
   .section {
     width: 25%;
@@ -79,6 +109,9 @@ main {
   }
   .section {
     margin-top: 3rem;
+  }
+  h2.minhas-transacoes{
+    text-align: center;
   }
 }
 @media screen and (max-width: 375px) {
