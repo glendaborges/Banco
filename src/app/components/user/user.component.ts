@@ -15,11 +15,11 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
   styleUrls: ['./user.component.css'],
 })
 export class UserComponent implements OnInit {
+
   resultado!: Cliente;
   form!: FormGroup;
   transferencias!: Transferencia[];
-
-  modal: boolean = false;
+  resultado!: Cliente
 
   constructor(
     public authService: AuthService,
@@ -43,6 +43,7 @@ export class UserComponent implements OnInit {
           });
       });
     });
+
 
     this.form = this.fb.group({
       contaOrigem: '',
@@ -73,13 +74,3 @@ export class UserComponent implements OnInit {
       }
     );
   }
-
-  mostraModal() {
-    this.modal = true;
-  }
-
-  logout() {
-    this.authService.doLogout();
-    this.route.navigate(['/login']);
-  }
-}

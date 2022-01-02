@@ -1,0 +1,97 @@
+h1,
+h2,
+h3,
+h5 {
+  color: #15274d;
+}
+
+h2.ola{
+  position: absolute;
+  top: 5rem;
+  left:1rem;
+  color: #15274d;
+}
+.h2-saldo {
+  font-size: 1.5rem;
+  color: #fa9746;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  font-weight: 500;
+  margin-top: 3rem;
+  font-family: "Amaranth", sans-serif;
+}
+
+.section {
+  width: 20%;
+  display: flow-root;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.container-saldo {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  padding: 1rem;
+  box-shadow: 2px 2px 5px #aab9dbb2, -2px 2px 5px #aab9dbb2;
+}
+
+.receitas {
+  color: #1cc288;
+  padding-right: 30px;
+  border-right: 1px solid #dedede;
+}
+.despesas {
+  color: #ff0000;
+}
+@media screen and (max-width: 1024px) {
+  .section {
+    width: 25%;
+  }
+  .receitas {
+    padding-right: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section {
+    width: 35%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .section {
+    width: 60%;
+  }
+  h2.ola {
+    top: 6.5rem;
+  }
+  .section {
+    margin-top: 3rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  .section {
+    width: 60%;
+  }
+  .receitas {
+    padding-right: 13px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .section {
+    width: 70%;
+  }
+}

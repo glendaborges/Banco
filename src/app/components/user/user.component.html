@@ -1,15 +1,27 @@
+<app-header></app-header>
+<h2 class='ola'>Olá, <span style='color:#fa9746;' >{{resultado?.nome |titlecase}}</span>!</h2>
+<!-- <a (click)="logout()" class="btn btn-danger">Sair</a> -->
 
-<div style="display:flex; justify-content: space-between;"><h1>Bem-Vindo, {{resultado?.nome}}!</h1>
-<a (click)="logout()" class="btn btn-danger">Sair</a>
-</div>
-<div>
-  <p>Saldo:{{resultado?.saldo}}</p>
-</div>
+<main>
+  <section class="section">
+  <h3 class="mb-0">SALDO ATUAL:</h3>
+  <h2 class="h2-saldo">{{resultado?.saldo |currency:'BRL'}}</h2>
+  <div class="container-saldo">
+    <div class="receitas">
+      <h3 class="mb-0">RECEITAS</h3>
+      <h4>{{300|currency:"BRL"}}</h4>
+    </div>
+    <div class="despesas">
+      <h3 class="mb-0">DESPESAS</h3>
+      <h4>{{300|currency:"BRL"}}</h4>
+    </div>
+  </div>
+</section>
 
-<button class='btn btn-primary' (click)="mostraModal()">Nova Transação</button>
+<!-- <button class='btn btn-primary' (click)="mostraModal()">Nova Transação</button> -->
 
 <div class='container'>
-  <h1>Extrato</h1>
+  <h2>Minhas transações</h2>
   <table class="table">
     <thead>
       <tr>
@@ -27,22 +39,5 @@
     </tbody>
   </table>
 </div>
-
-
-<div class='container mt-4' name='modal' *ngIf="modal">
-  <div class='row'>
-    <div class='col d-flex justify-content-center'>
-      <form (ngSubmit)='onSubmit()' [formGroup]="form" class='form-group w-50 p-5' style="border: 1px solid; border-radius: 10px;">
-        <h1>Nova Transferencia</h1>
-        <label class='form-label'>Conta de Destino</label>
-        <input  formControlName='contaDestino' type="text" class='form-control' name='contaDestino'>
-        <label class='form-label mt-3'>Valor</label>
-        <input formControlName='valor' type="number" class='form-control' name='valor' >
-        <label class="form-label mt-3">Senha</label>
-        <input formControlName='senha' type="password" class='form-control' name='senha'>
-        <button class='btn btn-sm btn-primary mt-3' type='submit'>Salvar</button>
-      </form>
-    </div>
-  </div>
-</div>
+</main>
 
