@@ -22,6 +22,7 @@ export class FormComponent implements OnInit {
     nome: '',
     data: '',
     email: '',
+    saldo: 0
   }
   constructor(private service:ClienteService, private router:Router,  private fb: FormBuilder, private  authService: AuthService) { }
 
@@ -50,7 +51,8 @@ export class FormComponent implements OnInit {
         Validators.maxLength(12)
       ])
 
-    ]
+    ],
+    saldo: 0
 
   })
 
@@ -62,7 +64,6 @@ export class FormComponent implements OnInit {
     let caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < numeroCaracteres; i++) {
       ContaAleatoria += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
-        console.log(numeroCaracteres)
     }
     return ContaAleatoria;
 
