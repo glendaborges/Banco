@@ -30,7 +30,7 @@ label {
 input,
 select,
 option {
-  width: 125%;
+  width: 100%;
   border-top-style: hidden;
   border-right-style: hidden;
   border-left-style: hidden;
@@ -90,7 +90,7 @@ input[type="date"] {
   input,
   select,
   option {
-    width: 120%;
+    width: 90%;
     padding: 12px;
   }
 }
@@ -101,7 +101,7 @@ input[type="date"] {
   .main {
     background-image: url("../../../assets/img/image4.jpg");
     background-repeat: no-repeat;
-    background-size: 90% 920%;
+    background-size: 100% 100%;
     background-position-x: center;
     background-position-y: center;
   }
@@ -113,7 +113,7 @@ input[type="date"] {
   input,
   select,
   option {
-    width: 110%;
+    width: 95%;
     padding: 12px;
   }
 }

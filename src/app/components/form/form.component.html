@@ -23,10 +23,10 @@
 
         <input formControlName='data' type="date" name='data'>
         <div *ngIf="!form.controls['data'].pristine && form.controls['data'].errors">
-          <p *ngIf="form.controls['data'].hasError('required')" class="text-danger">
+          <p *ngIf="form.controls['data'].hasError('required')" class="text-danger text-center">
             Data de Nascimento é obrigatória.
           </p>
-          <p *ngIf="form.controls['data'].hasError('menorDeIdade')" class="text-danger">
+          <p *ngIf="form.controls['data'].hasError('menorDeIdade')" class="text-danger text-center">
             Você precisa ter mais de 18 anos para cadastrar-se.
           </p>
         </div>
