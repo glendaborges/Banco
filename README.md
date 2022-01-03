@@ -1,27 +1,11 @@
-# Banco
+<h1>Projeto SoulBank</h1>
+<h3>Escopo do Projeto</h3>
+<p>CASE: Criar um banco virtual onde forneça aos clientes, maiores de 18 anos, os serviços de abertura de conta, transferência bancária, consulta de saldo e pagamentos.
+</p>
+<a href="https://ibb.co/6b8P5cR"><img src="https://i.ibb.co/RPN0WGp/login.png" alt="login" border="0"></a>
+<br>
+<br>
+<a href="https://ibb.co/sqmz1s9"><img src="https://i.ibb.co/NKVbNW2/user.png" alt="user" border="0"></a>
+<h5>©Soulcode Academy 2021/2022 - Ana Karolina de Melo, Bianca Schmitt, Eduardo Franco e Glenda B.</h5>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.4.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
