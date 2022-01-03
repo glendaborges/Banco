@@ -84,7 +84,7 @@ export class FormComponent implements OnInit {
     this.form.value['id'] = this.form.value.conta;
     this.service.createClient(this.form.value);
     this.form.reset();
-    this.router.navigate(['/']);
+    this.authService.doLogout()
   }
 
   get nome() {
