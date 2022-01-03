@@ -17,7 +17,7 @@ h6 {
 }
 
 img {
-  height: 92vh;
+  height: 100vh;
   width: 60%;
 }
 
@@ -101,7 +101,7 @@ input[type="date"] {
   .main {
     background-image: url("../../../assets/img/image4.jpg");
     background-repeat: no-repeat;
-    background-size: 110% 100%;
+    background-size: 90% 920%;
     background-position-x: center;
     background-position-y: center;
   }
@@ -117,6 +117,7 @@ input[type="date"] {
     padding: 12px;
   }
 }
+
 @media screen and (max-width: 425px) {
   .section-form {
     width: 90%;
