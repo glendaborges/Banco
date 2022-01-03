@@ -40,4 +40,22 @@ export class ClienteService {
     return this.angularFirestore
     .collection('cliente3', (ref)=> ref.where('email', '==', email)).valueChanges()
   }
+
+
+
+  updateSaldo(conta:string, saldo:number) {
+    return this.angularFirestore
+    .collection('cliente3', (ref)=> ref.where('conta', '==', conta))
+    
+  }
+
+  // updateTeste(id:string){
+  //   return this.angularFirestore.collection('cliente3').doc(id).update({
+  //     '
+  //   })
+  // }
+
+
+
+ 
 }

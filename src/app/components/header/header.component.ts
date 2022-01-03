@@ -7,7 +7,8 @@ import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { ClienteService } from 'src/app/services/cliente.service';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { runTransaction } from 'firebase/firestore';
 
 @Component({
   selector: 'app-header',
@@ -25,14 +26,13 @@ export class HeaderComponent implements OnInit {
     public authService: AuthService,
     private route: Router,
     private clienteService: ClienteService,
-    private db: AngularFireDatabase,
+    private db: AngularFirestore,
     private transferenciasService: TransferenciaService,
     private fb: FormBuilder
   ) {}
 
   ngOnInit() {
-
-    this.getClientes()
+    this.getClientes();
     this.authService.afAuth.currentUser.then((data: any) => {
       // acessar o email dentro do obj
       const email = data?.multiFactor.user.email;
@@ -56,13 +56,13 @@ export class HeaderComponent implements OnInit {
   }
 
   getClientes() {
-    this.clienteService.getClientList().subscribe(res => {
-      this.clientes = res.map( e => {
+    this.clienteService.getClientList().subscribe((res) => {
+      this.clientes = res.map((e) => {
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.data() as {}
+          ...(e.payload.doc.data() as {}),
         } as Cliente;
-      })
+      });
     });
   }
 
@@ -74,9 +74,13 @@ export class HeaderComponent implements OnInit {
         if (this.form.value.valor <= this.resultado.saldo) {
           this.form.value.flagSucesso = true;
           this.transferenciasService.createTransferencia(this.form.value);
+          // this.resultado.saldo -= this.form.value.valor
+          // this.db.collection('cliente3').doc(this.resultado.conta).set({saldo: this.resultado.saldo})
+          // console.log(this.resultado.saldo)
         } else {
           console.log('Saldo Insuficiente');
         }
+
         this.form.reset();
         this.modal = false;
       },
@@ -93,5 +97,23 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authService.doLogout();
     this.route.navigate(['/login']);
+  }
+
+  async transaction() {
+    const saldoRef = <any>this.db.collection('clientes3').doc('id');
+    await saldoRef.set({
+      saldo: 0,
+    });
+
+    try {
+      await this.db.firestore.runTransaction(async (t) => {
+        const doc = <any>await t.get(saldoRef);
+        const newSaldo = doc.data().saldo - this.form.value.valor;
+        t.update(saldoRef, { saldo: newSaldo });
+      });
+      console.log('Transaction success!');
+    } catch (e) {
+      console.log('Transaction failure:', e);
+    }
   }
 }

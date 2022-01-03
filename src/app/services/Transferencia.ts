@@ -4,4 +4,5 @@ export class Transferencia {
   valor!: number
   flagSucesso!: boolean
   id!: string
+ 
 }

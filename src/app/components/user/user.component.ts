@@ -40,38 +40,45 @@ export class UserComponent implements OnInit {
           .subscribe((transferencia: any) => {
             this.transferencias = transferencia;
           });
-      this.transferenciasService.getByContaDestino(this.resultado.conta).subscribe((conta: any)=>{
-        this.conta = conta
-      })
+        this.transferenciasService
+          .getByContaDestino(this.resultado.conta)
+          .subscribe((conta: any) => {
+            this.conta = conta;
+          });
       });
     });
 
-    this.form = this.fb.group({
-      contaOrigem: '',
-      contaDestino: '',
-      valor: 0,
-      flagSucesso: false,
-      senha: '',
-    });
+    // this.form = this.fb.group({
+    //   contaOrigem: '',
+    //   contaDestino: '',
+    //   valor: 0,
+    //   flagSucesso: false,
+    //   senha: '',
+    // });
   }
 
-  onSubmit() {
-    this.form.value['contaOrigem'] = this.resultado.conta;
-    this.authService.reAuth(this.resultado.email, this.form.value.senha).then(
-      (res) => {
-        delete this.form.value.senha;
-        if (this.form.value.valor <= this.resultado.saldo) {
-          this.form.value.flagSucesso = true;
-          this.transferenciasService.createTransferencia(this.form.value);
-        } else {
-          console.log('Saldo Insuficiente');
-        }
-        this.form.reset();
-      },
-      (err) => {
-        console.log(err);
-        console.log('senha incorreta');
-      }
-    );
-  }
+  // onSubmit() {
+  //   this.form.value['contaOrigem'] = this.resultado.conta;
+  //   this.authService.reAuth(this.resultado.email, this.form.value.senha).then(
+  //     (res) => {
+  //       delete this.form.value.senha;
+  //       if (this.form.value.valor <= this.resultado.saldo) {
+  //         this.form.value.flagSucesso = true;
+  //         this.transferenciasService.createTransferencia(this.form.value);
+  //       } else {
+  //         console.log('Saldo Insuficiente');
+  //       }
+  //       console.log(this.resultado.saldo)
+  //       console.log(this.form.value.valor)
+  //       this.resultado.saldo -= this.form.value.valor;
+  //       console.log(this.resultado.saldo)//*
+  //       this.clienteService.updateSaldo(this.resultado, this.resultado.conta);
+  //       this.form.reset();
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //       console.log('senha incorreta');
+  //     }
+  //   );
+  // }
 }
