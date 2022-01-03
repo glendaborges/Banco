@@ -12,7 +12,7 @@ export class TransferenciaService {
   createTransferencia(transferencia: Transferencia){
     return new Promise<any>((resolve, reject) => {
       this.angularFireStore
-      .collection('tranferencias')
+      .collection('transferencias')
       .add(transferencia)
       .then(response => { console.log(response)}, error => reject(error))
     })
@@ -20,25 +20,25 @@ export class TransferenciaService {
 
   getClientDoc(id:any) {
     return this.angularFireStore
-    .collection('tranferencias')
+    .collection('transferencias')
     .doc(id)
     .valueChanges()
   }
 
   getTransferenciaList(){
     return this.angularFireStore
-    .collection('tranferencias')
+    .collection('transferencias')
     .snapshotChanges()
   }
 
   getByContaOrigem(contaOrigem:string){
     return this.angularFireStore
-    .collection('tranferencias', (ref)=> ref.where('contaOrigem', '==', contaOrigem).where('flagSucesso','==', true)).valueChanges()
+    .collection('transferencias', (ref)=> ref.where('contaOrigem', '==', contaOrigem).where('flagSucesso','==', true)).valueChanges()
   }
 
   getByContaDestino(contaOrigem:string){
     return this.angularFireStore
-    .collection('tranferencias', (ref)=> ref.where('contaDestino', '==', contaOrigem)).valueChanges()
+    .collection('transferencias', (ref)=> ref.where('contaDestino', '==', contaOrigem)).valueChanges()
   }
 
 }

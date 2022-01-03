@@ -74,9 +74,8 @@ export class HeaderComponent implements OnInit {
         if (this.form.value.valor <= this.resultado.saldo) {
           this.form.value.flagSucesso = true;
           this.transferenciasService.createTransferencia(this.form.value);
-          // this.resultado.saldo -= this.form.value.valor
-          // this.db.collection('cliente3').doc(this.resultado.conta).set({saldo: this.resultado.saldo})
-          // console.log(this.resultado.saldo)
+          this.clienteService.updateSaldo(this.resultado.conta, this.form.value.valor, true)
+          this.clienteService.updateSaldo(this.form.value.contaDestino, this.form.value.valor, false)
         } else {
           console.log('Saldo Insuficiente');
         }
