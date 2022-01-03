@@ -6,7 +6,7 @@
 
       <div class="div-form">
 
-        <!-- <label class='form-label'>Nome</label> -->
+
         <input formControlName='nome' type="text" name='nome' placeholder='Digite seu nome completo'>
         <div *ngIf="!form.controls['nome'].pristine && form.controls['nome'].errors">
           <p *ngIf="form.controls['nome'].hasError('required')" class="text-danger">
@@ -20,7 +20,7 @@
           </p>
         </div>
 
-        <!-- <label class='form-label mt-3'>Data de Nascimento</label> -->
+
         <input formControlName='data' type="date" name='data'>
         <div *ngIf="!form.controls['data'].pristine && form.controls['data'].errors">
           <p *ngIf="form.controls['data'].hasError('required')" class="text-danger">
@@ -31,7 +31,7 @@
           </p>
         </div>
 
-        <!-- <label class='form-label mt-3'>E-mail</label> -->
+
         <input formControlName='email' type="email" name='email' placeholder='Digite seu email'>
         <div>
           <div *ngIf="!form.controls['email'].pristine && form.controls['email'].errors">
@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <!-- <label class="form-label mt-3">Senha</label> -->
+
         <input formControlName='senha' type="password" name='senha' placeholder='Digite sua senha'>
         <div *ngIf="!form.controls['senha'].pristine && form.controls['senha'].errors">
           <p *ngIf="form.controls['senha'].hasError('required')" class="text-danger">
@@ -55,7 +55,7 @@
           </p>
         </div>
 
-        <!-- <label class='form-label mt-3'>Selecione sua agência</label> -->
+
         <select name='agencia' formControlName='agencia' id='agencia' required>
           <option value="" disabled selected>Selecione uma agência bancária</option>
           <option value='2525'>Nordeste - 2525</option>

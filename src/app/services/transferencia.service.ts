@@ -3,44 +3,49 @@ import { Injectable } from '@angular/core';
 import { Transferencia } from './Transferencia';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TransferenciaService {
+  constructor(private angularFireStore: AngularFirestore) {}
 
-  constructor(private angularFireStore: AngularFirestore) { }
-
-  createTransferencia(transferencia: Transferencia){
+  createTransferencia(transferencia: Transferencia) {
     return new Promise<any>((resolve, reject) => {
       this.angularFireStore
+        .collection('transferencias')
+        .add(transferencia)
+        .then(
+          (response) => {
+            console.log(response);
+          },
+          (error) => reject(error)
+        );
+    });
+  }
+
+  getClientDoc(id: any) {
+    return this.angularFireStore
       .collection('transferencias')
-      .add(transferencia)
-      .then(response => { console.log(response)}, error => reject(error))
-    })
+      .doc(id)
+      .valueChanges();
   }
 
-  getClientDoc(id:any) {
+  getTransferenciaList() {
+    return this.angularFireStore.collection('transferencias').snapshotChanges();
+  }
+
+  getByContaOrigem(contaOrigem: string) {
     return this.angularFireStore
-    .collection('transferencias')
-    .doc(id)
-    .valueChanges()
+      .collection('transferencias', (ref) =>
+        ref.where('contaOrigem', '==', contaOrigem)
+      )
+      .valueChanges();
   }
 
-  getTransferenciaList(){
+  getByContaDestino(contaOrigem: string) {
     return this.angularFireStore
-    .collection('transferencias')
-    .snapshotChanges()
+      .collection('transferencias', (ref) =>
+        ref.where('contaDestino', '==', contaOrigem)
+      )
+      .valueChanges();
   }
-
-  getByContaOrigem(contaOrigem:string){
-    return this.angularFireStore
-    .collection('transferencias', (ref)=> ref.where('contaOrigem', '==', contaOrigem).where('flagSucesso','==', true)).valueChanges()
-  }
-
-  getByContaDestino(contaOrigem:string){
-    return this.angularFireStore
-    .collection('transferencias', (ref)=> ref.where('contaDestino', '==', contaOrigem)).valueChanges()
-  }
-
 }
-
-

@@ -19,6 +19,8 @@ export class UserComponent implements OnInit {
   form!: FormGroup;
   transferencias!: Transferencia[];
   conta!: Transferencia[];
+  somaEntrada!: number;
+  somaSaida!: number;
 
   constructor(
     public authService: AuthService,
@@ -39,46 +41,19 @@ export class UserComponent implements OnInit {
           .getByContaOrigem(this.resultado.conta)
           .subscribe((transferencia: any) => {
             this.transferencias = transferencia;
+            this.somaSaida = transferencia
+              .map((e: any) => e.valor)
+              .reduce((a: any, b: any) => a + b, 0);
           });
         this.transferenciasService
           .getByContaDestino(this.resultado.conta)
           .subscribe((conta: any) => {
             this.conta = conta;
+            this.somaEntrada = conta
+              .map((e: any) => e.valor)
+              .reduce((a: any, b: any) => a + b, 0);
           });
       });
     });
-
-    // this.form = this.fb.group({
-    //   contaOrigem: '',
-    //   contaDestino: '',
-    //   valor: 0,
-    //   flagSucesso: false,
-    //   senha: '',
-    // });
   }
-
-  // onSubmit() {
-  //   this.form.value['contaOrigem'] = this.resultado.conta;
-  //   this.authService.reAuth(this.resultado.email, this.form.value.senha).then(
-  //     (res) => {
-  //       delete this.form.value.senha;
-  //       if (this.form.value.valor <= this.resultado.saldo) {
-  //         this.form.value.flagSucesso = true;
-  //         this.transferenciasService.createTransferencia(this.form.value);
-  //       } else {
-  //         console.log('Saldo Insuficiente');
-  //       }
-  //       console.log(this.resultado.saldo)
-  //       console.log(this.form.value.valor)
-  //       this.resultado.saldo -= this.form.value.valor;
-  //       console.log(this.resultado.saldo)//*
-  //       this.clienteService.updateSaldo(this.resultado, this.resultado.conta);
-  //       this.form.reset();
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //       console.log('senha incorreta');
-  //     }
-  //   );
-  // }
 }

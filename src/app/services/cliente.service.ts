@@ -41,27 +41,21 @@ export class ClienteService {
       .valueChanges();
   }
 
-  updateSaldo(conta: string, valor: number, flagSub:boolean) {
-    const ORDER_ITEMS = this.angularFirestore.collection('cliente', (ref) => ref.where('conta', '==', conta))
+  updateSaldo(conta: string, valor: number, flagSub: boolean) {
+    const ORDER_ITEMS = this.angularFirestore.collection('cliente', (ref) =>
+      ref.where('conta', '==', conta)
+    );
 
-      ORDER_ITEMS.get().subscribe((snapshots:any) => {
-        if (snapshots.size > 0) {
-          snapshots.forEach((orderItem:any) => {
-            let novoSaldo = orderItem.saldo + valor
-            if(flagSub){
-              novoSaldo = orderItem.saldo - valor
-            }
-            ORDER_ITEMS.doc(orderItem.id).update({ saldo: valor})
-           console.log(snapshots)
-           console.log(valor)
-          })
-        }
-      })
+    ORDER_ITEMS.get().subscribe((snapshots: any) => {
+      if (snapshots.size > 0) {
+        snapshots.forEach((orderItem: any) => {
+          let novoSaldo = orderItem.data().saldo + valor;
+          if (flagSub) {
+            novoSaldo = orderItem.data().saldo - valor;
+          }
+          ORDER_ITEMS.doc(orderItem.id).update({ saldo: novoSaldo });
+        });
+      }
+    });
   }
-
-  // updateTeste(id:string){
-  //   return this.angularFirestore.collection('cliente3').doc(id).update({
-  //     '
-  //   })
-  // }
 }

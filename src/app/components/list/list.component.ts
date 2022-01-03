@@ -18,17 +18,15 @@ export class ListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.service.getClientList().subscribe(res => {
-      this.clientes = res.map( e => {
+    this.service.getClientList().subscribe((res) => {
+      this.clientes = res.map((e) => {
         return {
           id: e.payload.doc.id,
-          ...e.payload.doc.data() as {}
+          ...(e.payload.doc.data() as {}),
         } as Cliente;
-      })
+      });
     });
 
-    // this.clientes = this.service.getClientList();
-
-
+    
   }
 }

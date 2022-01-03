@@ -21,6 +21,7 @@ export class HeaderComponent implements OnInit {
   transferencias!: Transferencia[];
   modal: boolean = false;
   clientes!: Cliente[];
+  msgErro!: string;
 
   constructor(
     public authService: AuthService,
@@ -74,10 +75,19 @@ export class HeaderComponent implements OnInit {
         if (this.form.value.valor <= this.resultado.saldo) {
           this.form.value.flagSucesso = true;
           this.transferenciasService.createTransferencia(this.form.value);
-          this.clienteService.updateSaldo(this.resultado.conta, this.form.value.valor, true)
-          this.clienteService.updateSaldo(this.form.value.contaDestino, this.form.value.valor, false)
+          this.clienteService.updateSaldo(
+            this.resultado.conta,
+            this.form.value.valor,
+            true
+          );
+          this.clienteService.updateSaldo(
+            this.form.value.contaDestino,
+            this.form.value.valor,
+            false
+          );
         } else {
           console.log('Saldo Insuficiente');
+          this.msgErro = 'Saldo Insuficiente';
         }
 
         this.form.reset();
@@ -86,6 +96,7 @@ export class HeaderComponent implements OnInit {
       (err) => {
         console.log(err);
         console.log('senha incorreta');
+        this.msgErro = 'Senha incorreta';
       }
     );
   }
