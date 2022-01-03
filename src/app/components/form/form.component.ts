@@ -83,8 +83,8 @@ export class FormComponent implements OnInit {
     delete this.form.value.senha;
     this.form.value['id'] = this.form.value.conta;
     this.service.createClient(this.form.value);
+    this.router.navigate(['/login']);
     this.form.reset();
-    this.router.navigate(['/']);
   }
 
   get nome() {

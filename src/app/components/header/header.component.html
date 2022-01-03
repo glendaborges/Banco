@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark nav" style="height: 8vh;">
+<nav class="navbar navbar-expand-md navbar-dark nav" style="height: 9.3vh;">
   <div class="container-fluid p-0 ">
     <a class="navbar-brand fs-4 color1" href="#">
       <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bank2  ms-3 me-1"
@@ -18,7 +18,7 @@
           <a (click)="mostraModal()">Nova Transação</a>
         </li>
       </ul>
-      <ul class="navbar-nav  mx-3 my-2 my-lg-0 navbar-nav-scroll btn sair text-center">
+      <ul class="navbar-nav mx-2 my-1 my-lg-0 navbar-nav-scroll btn sair text-center">
         <li><a (click)="logout()">Logout</a></li>
       </ul>
     </div>
@@ -26,22 +26,18 @@
 </nav>
 
 <!-- Modal -->
-<div class='container mt-4' name='modal' *ngIf="modal">
-  <div class='row'>
-    <div class='col d-flex justify-content-center'>
-      <form (ngSubmit)='onSubmit()' [formGroup]="form" class='form-group w-50 p-5'
-        style="border: 1px solid; border-radius: 10px;">
-        <h1>Nova Transferencia</h1>
+<section class='container section' name='modal' *ngIf="modal">
+      <form (ngSubmit)='onSubmit()' [formGroup]="form" class="section-form">
+        <h1>Nova Transferência</h1>
         <label class='form-label'>Conta de Destino</label>
-        <select name="conta" formControlName='contaDestino' class="form-select">
+        <select name="conta" formControlName='contaDestino'>
             <option *ngFor="let i of clientes " value="{{i.conta}}">{{i.conta}} - {{i.nome |titlecase}}</option>
         </select>
-        <label class='form-label mt-3'>Valor</label>
-        <input formControlName='valor' type="number" class='form-control' name='valor'>
-        <label class="form-label mt-3">Senha</label>
-        <input formControlName='senha' type="password" class='form-control' name='senha'>
-        <button class='btn btn-sm btn-primary mt-3' type='submit'>Salvar</button>
+        <label>Valor</label>
+        <input formControlName='valor' type="number"  name='valor'>
+        <label>Senha</label>
+        <input formControlName='senha' type="password" name='senha'>
+        <button class='btn btn1' type='submit'>Salvar</button>
       </form>
-    </div>
-  </div>
-</div>
+</section>
+

@@ -8,13 +8,13 @@ h5 {
 
 h2.ola {
   position: absolute;
-  top: 4.5rem;
+  top: 5rem;
   left: 1rem;
   color: #15274d;
 }
 
-span{
-  color:#fa9746;
+span {
+  color: #fa9746;
   font-weight: 500;
 }
 
@@ -23,10 +23,9 @@ h2.saldo {
   color: #fa9746;
 }
 
-h4{
+h4 {
   font-weight: 700;
 }
-
 
 main {
   display: flex;
@@ -59,31 +58,36 @@ main {
 }
 
 .receitas {
-
   padding-right: 30px;
   border-right: 1px solid #dedede;
 }
 
-
-table {
-  color:#15274d;
-  border-collapse:separate;
-  border:1px solid #ccdee9;
-  border:1px solid #fa9746;
-  border-radius:6px;
+h2.minhas-transacoes {
+  margin-left: 16.3rem;
 }
 
-thead{
+table {
+  width: 60%;
+  color: #15274d;
+  border-collapse: separate;
+  border: 1px solid #ccdee9;
+  border: 1px solid #fa9746;
+  border-radius: 6px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+thead {
   background-color: #ccdee9;
   background-color: #fa9746;
   border-radius: 30px;
 }
 
-td:first-child, th:first-child {
-   border-left: none;
+td:first-child,
+th:first-child {
+  border-left: none;
 }
-
-
 
 @media screen and (max-width: 1024px) {
   .section {
@@ -92,11 +96,20 @@ td:first-child, th:first-child {
   .receitas {
     padding-right: 22px;
   }
+  h2.minhas-transacoes {
+    margin-left: 11.8rem;
+  }
 }
 
 @media screen and (max-width: 768px) {
   .section {
     width: 35%;
+  }
+  h2.minhas-transacoes {
+    margin-left: 8.8rem;
+  }
+  table {
+    width: 80%;
   }
 }
 
@@ -110,8 +123,14 @@ td:first-child, th:first-child {
   .section {
     margin-top: 3rem;
   }
-  h2.minhas-transacoes{
-    text-align: center;
+  h2.minhas-transacoes {
+    margin-left: 10.5rem;
+  }
+  table {
+    width: 95%;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
 @media screen and (max-width: 375px) {
@@ -121,10 +140,16 @@ td:first-child, th:first-child {
   .receitas {
     padding-right: 13px;
   }
+  h2.minhas-transacoes {
+    margin-left: 9.2rem;
+  }
 }
 
 @media screen and (max-width: 320px) {
   .section {
     width: 70%;
+  }
+  h2.minhas-transacoes {
+    margin-left: 7.4rem;
   }
 }
